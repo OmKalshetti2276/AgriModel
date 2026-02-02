@@ -18,7 +18,7 @@ FEATURES = [
     "rain_mm",
     "rain_intensity",
     "soil_moisture_before",
-    "irrigation_seconds"
+    "irrigation_seconds",
 ]
 
 TARGET = "soil_moisture_after"
@@ -34,11 +34,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # -------------------- MODEL --------------------
 
-model = RandomForestRegressor(
-    n_estimators=200,
-    max_depth=15,
-    random_state=42
-)
+model = RandomForestRegressor(n_estimators=200, max_depth=15, random_state=42)
 
 model.fit(X_train, y_train)
 
