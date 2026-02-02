@@ -1,7 +1,12 @@
 from fastapi import FastAPI
 from decision_engine import decide_irrigation
 
-app = FastAPI()
+app = FastAPI(
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
+
 
 @app.get("/")
 def home():
