@@ -2,16 +2,23 @@
 
 import joblib
 import pandas as pd
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "soil_response_model.pkl")
+
+model = joblib.load(MODEL_PATH)
+
 
 # ---------------- CONFIG ----------------
 
-MODEL_PATH = "soil_response_model.pkl"
+# MODEL_PATH = "soil_response_model.pkl"
 STRESS_THRESHOLD = 35        # %
 IRRIGATION_OPTIONS = [0, 5, 10, 15, 20, 30]
 
 # ---------------------------------------
 
-model = joblib.load(MODEL_PATH)
+# model = joblib.load(MODEL_PATH)
 
 
 def predict_soil_moisture(
