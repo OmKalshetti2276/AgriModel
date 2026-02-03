@@ -1,3 +1,5 @@
+import os
+import uvicorn
 from fastapi import FastAPI
 from decision_engine import decide_irrigation
 
@@ -23,3 +25,7 @@ def predict(data: dict):
         rain_intensity=data["rain_intensity"],
         current_sm=data["soil_moisture"]
     )
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("ml_server:app", host="0.0.0.0", port=port)
